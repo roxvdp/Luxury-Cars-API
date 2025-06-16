@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, url_for
 import os
 
 app = Flask(__name__)
@@ -13,6 +13,8 @@ luxury_cars = [
 
 @app.route('/cars')
 def get_cars():
+    for car in luxury_cars:
+        car['foto_url'] = url_for('static', filename=car['foto_url'].replace('/static/', ''), _external=True)
     return jsonify(luxury_cars)
 
 
