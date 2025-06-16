@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request, url_for
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 
 luxury_cars = [
     {"brand": "Lamborghini", "model": "Aventador", "year": 2022, "price": 1200.00, "license_plate": "LMB-001", "available": True, "foto_url":"/static/img/LamborghiniAventador.webp"},
